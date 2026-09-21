@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Nifty 200 — 22/55 Trend Reversal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">AURORA SCANNER</div>
+        <h1>Nifty 200 — Daily 22/55 Trend Reversal</h1>
+        <p class="subtitle">Fresh bullish 22 EMA / 55 EMA crossovers with long-term trend confirmation.</p>
+      </div>
+      <div id="statusBadge" class="status">Loading…</div>
+    </header>
+
+    <section class="meta-grid">
+      <div class="meta-card">
+        <span>Market status</span>
+        <strong id="marketStatus">—</strong>
+      </div>
+      <div class="meta-card">
+        <span>Market data date</span>
+        <strong id="marketDataDate">—</strong>
+      </div>
+      <div class="meta-card">
+        <span>Data fetched</span>
+        <strong id="dataFetchedAt">—</strong>
+      </div>
+      <div class="meta-card">
+        <span>Page refreshed</span>
+        <strong id="pageRefreshedAt">—</strong>
+      </div>
+      <div class="meta-card">
+        <span>Universe</span>
+        <strong id="universe">Nifty 200</strong>
+      </div>
+      <div class="meta-card">
+        <span>Candidates</span>
+        <strong id="candidateCount">—</strong>
+      </div>
+    </section>
+
+    <section class="rules">
+      <h2>Mandatory candidate rules</h2>
+      <div class="rule-list">
+        <span>22 EMA crossed above 55 EMA within 1–3 completed sessions</span>
+        <span>Price above 22, 55, 150 &amp; 200 EMA</span>
+        <span>150 EMA above 200 EMA</span>
+      </div>
+      <p>MACD, RVOL and reversal candles are displayed as secondary information only and do not filter candidates.</p>
+    </section>
+
+    <section class="table-section">
+      <div class="section-head">
+        <div>
+          <h2>Current candidates</h2>
+          <p id="lastRunNote">—</p>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Stock</th>
+              <th>Cross date</th>
+              <th>Sessions</th>
+              <th>CMP</th>
+              <th>22 EMA</th>
+              <th>55 EMA</th>
+              <th>150 EMA</th>
+              <th>200 EMA</th>
+              <th>MACD</th>
+              <th>RVOL</th>
+              <th>Candle</th>
+            </tr>
+          </thead>
+          <tbody id="candidateBody"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="empty" hidden>No candidates matched the mandatory rules for the latest market-data date.</div>
+    </section>
+
+    <footer>
+      <span>Aurora Nifty 200 22/55 Trend Reversal Scanner</span>
+      <span>Daily research scanner — secondary factors are informational.</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
