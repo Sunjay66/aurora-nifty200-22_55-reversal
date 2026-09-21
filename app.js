@@ -1,65 +1,232 @@
+const DATA_URL = "./data/latest_results.json";
+
+function $(id) {
+    return document.getElementById(id);
+}
+
+function safe(value, fallback = "—") {
+    if (value === undefined || value === null || value === "") {
+        return fallback;
+    }
+    return value;
+}
+
+function formatNumber(value, decimals = 2) {
+    if (value === undefined || value === null || value === "") {
+        return "—";
+    }
+
+    const number = Number(value);
+
+    if (!Number.isFinite(number)) {
+        return "—";
+    }
+
+    return number.toLocaleString("en-IN", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+    });
+}
+
+function formatRvol(value) {
+    if (value === undefined || value === null || value === "") {
+        return "—";
+    }
+
+    const number = Number(value);
+
+    if (!Number.isFinite(number)) {
+        return "—";
+    }
+
+    return number.toFixed(2) + "x";
+}
+
+function setText(id, value, fallback = "—") {
+    const element = $(id);
+
+    if (element) {
+        element.textContent = safe(value, fallback);
+    }
+}
+
+function renderCandidates(data) {
+
+    const candidates = Array.isArray(data.candidates)
+        ? data.candidates
+        : [];
+
+    setText(
+        "marketStatus",
+        data.market_status,
+        "UNKNOWN"
+    );
+
+    setText(
+        "marketDataDate",
+        data.market_data_session_display ||
+        data.market_data_date,
+        "—"
+    );
+
+    setText(
+        "dataFetched",
+        data.data_fetched_display,
+        "—"
+    );
+
+    setText(
+        "pageRefreshed",
+        data.page_refreshed_display,
+        "—"
+    );
+
+    setText(
+        "universe",
+        data.universe,
+        "Nifty 200"
+    );
+
+    setText(
+        "candidateCount",
+        candidates.length,
+        "0"
+    );
+
+    const sessionElement = $("latestSession");
+
+    if (sessionElement) {
+
+        const sessionText =
+            data.market_data_session_display ||
+            data.market_data_date ||
+            "—";
+
+        sessionElement.textContent =
+            `Latest market-data session: ${sessionText}. Page generated from the stored scan result.`;
+    }
+
+    const tableBody = $("candidateTableBody");
+
+    if (!tableBody) {
+        return;
+    }
+
+    tableBody.innerHTML = "";
+
+    if (candidates.length === 0) {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td colspan="12" class="empty-state">
+                No Nifty 200 candidates currently satisfy all mandatory rules.
+            </td>
+        `;
+
+        tableBody.appendChild(row);
+
+        return;
+    }
+
+    candidates.forEach(candidate => {
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>
+                <strong>${safe(candidate.stock)}</strong>
+            </td>
+
+            <td>
+                ${safe(candidate.cross_date)}
+            </td>
+
+            <td>
+                ${safe(candidate.sessions_since_cross)}
+            </td>
+
+            <td>
+                ${formatNumber(candidate.cmp)}
+            </td>
+
+            <td>
+                ${formatNumber(candidate.ema22)}
+            </td>
+
+            <td>
+                ${formatNumber(candidate.ema55)}
+            </td>
+
+            <td>
+                ${formatNumber(candidate.ema150)}
+            </td>
+
+            <td>
+                ${formatNumber(candidate.ema200)}
+            </td>
+
+            <td>
+                ${safe(candidate.macd_status)}
+            </td>
+
+            <td>
+                ${formatRvol(candidate.rvol)}
+            </td>
+
+            <td>
+                ${safe(candidate.candle)}
+            </td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+}
+
 async function loadScannerData() {
-  const response = await fetch("data/latest_results.json?ts=" + Date.now(), { cache: "no-store" });
-  if (!response.ok) throw new Error("Could not load scanner data.");
-  return response.json();
+
+    try {
+
+        const response = await fetch(
+            `${DATA_URL}?t=${Date.now()}`,
+            {
+                cache: "no-store"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error(
+                `HTTP ${response.status}`
+            );
+        }
+
+        const data = await response.json();
+
+        renderCandidates(data);
+
+    } catch (error) {
+
+        console.error(
+            "Aurora scanner data error:",
+            error
+        );
+
+        const tableBody = $("candidateTableBody");
+
+        if (tableBody) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="12" class="empty-state">
+                        Unable to load the latest scanner data.
+                    </td>
+                </tr>
+            `;
+        }
+    }
 }
 
-function fmtNumber(value) {
-  if (value === null || value === undefined || value === "") return "—";
-  return Number(value).toLocaleString("en-IN", { maximumFractionDigits: 2 });
-}
-
-function setText(id, value) {
-  document.getElementById(id).textContent = value ?? "—";
-}
-
-function render(data) {
-  setText("marketStatus", data.market_status);
-  setText("marketDataDate", data.market_data_date_display);
-  setText("dataFetchedAt", data.data_fetched_at_display);
-  setText("pageRefreshedAt", data.page_refreshed_at_display);
-  setText("universe", data.universe);
-  setText("candidateCount", data.candidate_count);
-
-  document.getElementById("statusBadge").textContent =
-    data.market_status === "OPEN" ? "● DAILY DATA CURRENT" : "● MARKET CLOSED — LAST TRADING DATA";
-
-  setText(
-    "lastRunNote",
-    `Latest market-data session: ${data.market_data_date_display}. Page generated from the stored scan result.`
-  );
-
-  const body = document.getElementById("candidateBody");
-  body.innerHTML = "";
-
-  if (!data.candidates || data.candidates.length === 0) {
-    document.getElementById("emptyState").hidden = false;
-    return;
-  }
-  document.getElementById("emptyState").hidden = true;
-
-  for (const row of data.candidates) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${row.stock}</td>
-      <td>${row.cross_date}</td>
-      <td>${row.sessions_since_cross}</td>
-      <td>${fmtNumber(row.cmp)}</td>
-      <td>${fmtNumber(row.ema22)}</td>
-      <td>${fmtNumber(row.ema55)}</td>
-      <td>${fmtNumber(row.ema150)}</td>
-      <td>${fmtNumber(row.ema200)}</td>
-      <td>${row.macd_status}</td>
-      <td>${row.rvol}</td>
-      <td>${row.reversal_candle}</td>
-    `;
-    body.appendChild(tr);
-  }
-}
-
-loadScannerData()
-  .then(render)
-  .catch(err => {
-    document.getElementById("statusBadge").textContent = "DATA LOAD ERROR";
-    document.getElementById("lastRunNote").textContent = err.message;
-  });
+document.addEventListener(
+    "DOMContentLoaded",
+    loadScannerData
+);
