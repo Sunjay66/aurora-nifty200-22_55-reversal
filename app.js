@@ -1,17 +1,20 @@
-const DATA_URL = "./data/latest_results.json";
+const DATA_URL = "data/latest_results.json";
 
-function $(id) {
-    return document.getElementById(id);
-}
+function setText(id, value, fallback = "—") {
+    const element = document.getElementById(id);
 
-function safe(value, fallback = "—") {
-    if (value === undefined || value === null || value === "") {
-        return fallback;
+    if (!element) {
+        return;
     }
-    return value;
+
+    if (value === undefined || value === null || value === "") {
+        element.textContent = fallback;
+    } else {
+        element.textContent = value;
+    }
 }
 
-function formatNumber(value, decimals = 2) {
+function fmtNumber(value) {
     if (value === undefined || value === null || value === "") {
         return "—";
     }
@@ -23,12 +26,12 @@ function formatNumber(value, decimals = 2) {
     }
 
     return number.toLocaleString("en-IN", {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
     });
 }
 
-function formatRvol(value) {
+function fmtRvol(value) {
     if (value === undefined || value === null || value === "") {
         return "—";
     }
@@ -42,43 +45,31 @@ function formatRvol(value) {
     return number.toFixed(2) + "x";
 }
 
-function setText(id, value, fallback = "—") {
-    const element = $(id);
+function render(data) {
 
-    if (element) {
-        element.textContent = safe(value, fallback);
-    }
-}
-
-function renderCandidates(data) {
-
-    const candidates = Array.isArray(data.candidates)
-        ? data.candidates
-        : [];
+    // -----------------------------
+    // Header / metadata
+    // -----------------------------
 
     setText(
         "marketStatus",
-        data.market_status,
-        "UNKNOWN"
+        data.market_status
     );
 
     setText(
         "marketDataDate",
         data.market_data_session_display ||
-        data.market_data_date,
-        "—"
+        data.market_data_date
     );
 
     setText(
-        "dataFetched",
-        data.data_fetched_display,
-        "—"
+        "dataFetchedAt",
+        data.data_fetched_display
     );
 
     setText(
-        "pageRefreshed",
-        data.page_refreshed_display,
-        "—"
+        "pageRefreshedAt",
+        data.page_refreshed_display
     );
 
     setText(
@@ -89,144 +80,184 @@ function renderCandidates(data) {
 
     setText(
         "candidateCount",
-        candidates.length,
+        data.candidate_count,
         "0"
     );
 
-    const sessionElement = $("latestSession");
 
-    if (sessionElement) {
+    // -----------------------------
+    // Status badge
+    // -----------------------------
 
-        const sessionText =
-            data.market_data_session_display ||
-            data.market_data_date ||
-            "—";
+    const statusBadge =
+        document.getElementById("statusBadge");
 
-        sessionElement.textContent =
-            `Latest market-data session: ${sessionText}. Page generated from the stored scan result.`;
+    if (statusBadge) {
+
+        const status =
+            data.market_status || "";
+
+        if (status.includes("TODAY'S DATA")) {
+
+            statusBadge.textContent =
+                "● MARKET CLOSED — TODAY'S DATA";
+
+        } else if (
+            status.includes("LAST TRADING DATA")
+        ) {
+
+            statusBadge.textContent =
+                "● MARKET CLOSED — LAST TRADING DATA";
+
+        } else if (
+            status === "OPEN"
+        ) {
+
+            statusBadge.textContent =
+                "● DAILY DATA CURRENT";
+
+        } else {
+
+            statusBadge.textContent =
+                "● " + status;
+        }
     }
 
-    const tableBody = $("candidateTableBody");
 
-    if (!tableBody) {
+    // -----------------------------
+    // Latest market-data session
+    // -----------------------------
+
+    setText(
+        "lastRunNote",
+        `Latest market-data session: ${
+            data.market_data_session_display ||
+            data.market_data_date ||
+            "—"
+        }. Page generated from the stored scan result.`
+    );
+
+
+    // -----------------------------
+    // Candidate table
+    // -----------------------------
+
+    const body =
+        document.getElementById("candidateBody");
+
+    const emptyState =
+        document.getElementById("emptyState");
+
+    if (!body) {
         return;
     }
 
-    tableBody.innerHTML = "";
+    body.innerHTML = "";
+
+    const candidates =
+        Array.isArray(data.candidates)
+            ? data.candidates
+            : [];
+
 
     if (candidates.length === 0) {
 
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-            <td colspan="12" class="empty-state">
-                No Nifty 200 candidates currently satisfy all mandatory rules.
-            </td>
-        `;
-
-        tableBody.appendChild(row);
+        if (emptyState) {
+            emptyState.hidden = false;
+        }
 
         return;
     }
 
-    candidates.forEach(candidate => {
 
-        const row = document.createElement("tr");
+    if (emptyState) {
+        emptyState.hidden = true;
+    }
 
-        row.innerHTML = `
-            <td>
-                <strong>${safe(candidate.stock)}</strong>
-            </td>
 
-            <td>
-                ${safe(candidate.cross_date)}
-            </td>
+    for (const row of candidates) {
 
-            <td>
-                ${safe(candidate.sessions_since_cross)}
-            </td>
+        const tr =
+            document.createElement("tr");
 
-            <td>
-                ${formatNumber(candidate.cmp)}
-            </td>
+        tr.innerHTML = `
+            <td><strong>${row.stock ?? "—"}</strong></td>
 
-            <td>
-                ${formatNumber(candidate.ema22)}
-            </td>
+            <td>${row.cross_date ?? "—"}</td>
 
-            <td>
-                ${formatNumber(candidate.ema55)}
-            </td>
+            <td>${row.sessions_since_cross ?? "—"}</td>
 
-            <td>
-                ${formatNumber(candidate.ema150)}
-            </td>
+            <td>${fmtNumber(row.cmp)}</td>
 
-            <td>
-                ${formatNumber(candidate.ema200)}
-            </td>
+            <td>${fmtNumber(row.ema22)}</td>
 
-            <td>
-                ${safe(candidate.macd_status)}
-            </td>
+            <td>${fmtNumber(row.ema55)}</td>
 
-            <td>
-                ${formatRvol(candidate.rvol)}
-            </td>
+            <td>${fmtNumber(row.ema150)}</td>
 
-            <td>
-                ${safe(candidate.candle)}
-            </td>
+            <td>${fmtNumber(row.ema200)}</td>
+
+            <td>${row.macd_status ?? "—"}</td>
+
+            <td>${fmtRvol(row.rvol)}</td>
+
+            <td>${row.candle ?? "None"}</td>
         `;
 
-        tableBody.appendChild(row);
-    });
+        body.appendChild(tr);
+    }
 }
+
+
+// -----------------------------
+// Load latest scanner data
+// -----------------------------
 
 async function loadScannerData() {
 
-    try {
-
-        const response = await fetch(
-            `${DATA_URL}?t=${Date.now()}`,
+    const response =
+        await fetch(
+            DATA_URL + "?ts=" + Date.now(),
             {
                 cache: "no-store"
             }
         );
 
-        if (!response.ok) {
-            throw new Error(
-                `HTTP ${response.status}`
-            );
-        }
+    if (!response.ok) {
 
-        const data = await response.json();
+        throw new Error(
+            "Could not load scanner data."
+        );
+    }
 
-        renderCandidates(data);
+    return response.json();
+}
 
-    } catch (error) {
+
+loadScannerData()
+
+    .then(render)
+
+    .catch(error => {
 
         console.error(
-            "Aurora scanner data error:",
+            "Aurora scanner error:",
             error
         );
 
-        const tableBody = $("candidateTableBody");
+        const statusBadge =
+            document.getElementById(
+                "statusBadge"
+            );
 
-        if (tableBody) {
+        if (statusBadge) {
 
-            tableBody.innerHTML = `
-                <tr>
-                    <td colspan="12" class="empty-state">
-                        Unable to load the latest scanner data.
-                    </td>
-                </tr>
-            `;
+            statusBadge.textContent =
+                "DATA LOAD ERROR";
         }
-    }
-}
 
-document.addEventListener(
-    "DOMContentLoaded",
-    loadScannerData
-);
+        setText(
+            "lastRunNote",
+            error.message
+        );
+    });
