@@ -1,40 +1,21 @@
 {
   "scanner_name": "Aurora Nifty 200 — Daily 22/55 Trend Reversal",
-  "generated_at": "2026-10-13T23:57:17.590852+05:30",
+  "generated_at": "2026-10-14T21:25:28.550684+05:30",
   "market_status": "CLOSED — TODAY'S DATA",
-  "market_data_date": "2026-10-13",
-  "market_data_session_display": "13-Oct-2026 03:30 PM IST",
-  "data_fetched_at": "2026-10-13T23:57:00.082228+05:30",
-  "data_fetched_display": "13-Oct-2026 11:57 PM IST",
-  "page_refreshed_at": "2026-10-13T23:57:17.590852+05:30",
-  "page_refreshed_display": "13-Oct-2026 11:57 PM IST",
+  "market_data_date": "2026-10-14",
+  "market_data_session_display": "14-Oct-2026 03:30 PM IST",
+  "data_fetched_at": "2026-10-14T21:25:13.963415+05:30",
+  "data_fetched_display": "14-Oct-2026 09:25 PM IST",
+  "page_refreshed_at": "2026-10-14T21:25:28.550684+05:30",
+  "page_refreshed_display": "14-Oct-2026 09:25 PM IST",
   "universe": "Nifty 200",
   "timeframe": "Daily",
-  "candidate_count": 1,
+  "candidate_count": 0,
   "mandatory_rules": [
     "22 EMA crossed above 55 EMA within 1–3 completed sessions.",
     "Current price above 22, 55, 150 and 200 EMA.",
     "150 EMA above 200 EMA."
   ],
   "secondary_note": "MACD, RVOL and reversal candles are displayed as secondary information only and do not filter candidates.",
-  "candidates": [
-    {
-      "stock": "MAHABANK",
-      "cross_date": "07-Oct-2026",
-      "sessions_since_cross": 3,
-      "cmp": 83.74,
-      "ema22": 82.24,
-      "ema55": 82.03,
-      "ema150": 78.33,
-      "ema200": 75.99,
-      "macd": 0.06,
-      "macd_signal": -0.14,
-      "macd_histogram": 0.2,
-      "macd_status": "Bullish Cross — 2 sessions ago",
-      "rvol": 0.82,
-      "candle": "None",
-      "spread_22_55": 0.21,
-      "spread_150_200": 2.34
-    }
-  ]
+  "candidates": []
 }
