@@ -1,13 +1,13 @@
 {
   "scanner_name": "Aurora Nifty 200 — Daily 22/55 Trend Reversal",
-  "generated_at": "2026-11-01T22:43:14.517177+05:30",
+  "generated_at": "2026-11-03T02:21:49.669454+05:30",
   "market_status": "CLOSED — LAST TRADING DATA",
   "market_data_date": "2026-10-30",
   "market_data_session_display": "30-Oct-2026 03:30 PM IST",
-  "data_fetched_at": "2026-11-01T22:43:01.935675+05:30",
-  "data_fetched_display": "01-Nov-2026 10:43 PM IST",
-  "page_refreshed_at": "2026-11-01T22:43:14.517177+05:30",
-  "page_refreshed_display": "01-Nov-2026 10:43 PM IST",
+  "data_fetched_at": "2026-11-03T02:21:30.589499+05:30",
+  "data_fetched_display": "03-Nov-2026 02:21 AM IST",
+  "page_refreshed_at": "2026-11-03T02:21:49.669454+05:30",
+  "page_refreshed_display": "03-Nov-2026 02:21 AM IST",
   "universe": "Nifty 200",
   "timeframe": "Daily",
   "candidate_count": 3,
@@ -26,7 +26,7 @@
       "ema22": 4080.6,
       "ema55": 4065.29,
       "ema150": 3897.41,
-      "ema200": 3811.4,
+      "ema200": 3811.38,
       "macd": 22.41,
       "macd_signal": -12.49,
       "macd_histogram": 34.89,
@@ -34,7 +34,7 @@
       "rvol": 1.05,
       "candle": "None",
       "spread_22_55": 15.31,
-      "spread_150_200": 86.01
+      "spread_150_200": 86.03
     },
     {
       "stock": "FEDERALBNK",
