@@ -1,13 +1,13 @@
 {
   "scanner_name": "Aurora Nifty 200 — Daily 22/55 Trend Reversal",
-  "generated_at": "2026-11-11T00:15:58.825943+05:30",
+  "generated_at": "2026-11-12T00:20:04.377307+05:30",
   "market_status": "CLOSED — LAST TRADING DATA",
   "market_data_date": "2026-11-09",
   "market_data_session_display": "09-Nov-2026 03:30 PM IST",
-  "data_fetched_at": "2026-11-11T00:15:46.028320+05:30",
-  "data_fetched_display": "11-Nov-2026 12:15 AM IST",
-  "page_refreshed_at": "2026-11-11T00:15:58.825943+05:30",
-  "page_refreshed_display": "11-Nov-2026 12:15 AM IST",
+  "data_fetched_at": "2026-11-12T00:19:51.449630+05:30",
+  "data_fetched_display": "12-Nov-2026 12:19 AM IST",
+  "page_refreshed_at": "2026-11-12T00:20:04.377307+05:30",
+  "page_refreshed_display": "12-Nov-2026 12:20 AM IST",
   "universe": "Nifty 200",
   "timeframe": "Daily",
   "candidate_count": 8,
@@ -44,7 +44,7 @@
       "ema22": 5266.91,
       "ema55": 5257.61,
       "ema150": 5255.84,
-      "ema200": 5242.23,
+      "ema200": 5242.19,
       "macd": 59.42,
       "macd_signal": 16.28,
       "macd_histogram": 43.14,
@@ -52,7 +52,7 @@
       "rvol": 0.61,
       "candle": "None",
       "spread_22_55": 9.3,
-      "spread_150_200": 13.62
+      "spread_150_200": 13.65
     },
     {
       "stock": "MARICO",
@@ -80,7 +80,7 @@
       "ema22": 2382.7,
       "ema55": 2347.52,
       "ema150": 2274.99,
-      "ema200": 2229.94,
+      "ema200": 2229.9,
       "macd": 62.66,
       "macd_signal": 15.35,
       "macd_histogram": 47.31,
@@ -88,7 +88,7 @@
       "rvol": 2.14,
       "candle": "None",
       "spread_22_55": 35.17,
-      "spread_150_200": 45.05
+      "spread_150_200": 45.08
     },
     {
       "stock": "JSWSTEEL",
@@ -98,7 +98,7 @@
       "ema22": 1279.08,
       "ema55": 1266.72,
       "ema150": 1250.95,
-      "ema200": 1236.27,
+      "ema200": 1236.28,
       "macd": 27.82,
       "macd_signal": 12.21,
       "macd_histogram": 15.61,
@@ -106,7 +106,7 @@
       "rvol": 1.07,
       "candle": "None",
       "spread_22_55": 12.35,
-      "spread_150_200": 14.68
+      "spread_150_200": 14.67
     },
     {
       "stock": "GAIL",
@@ -116,7 +116,7 @@
       "ema22": 175.0,
       "ema55": 172.77,
       "ema150": 170.85,
-      "ema200": 170.84,
+      "ema200": 170.85,
       "macd": 4.01,
       "macd_signal": 1.49,
       "macd_histogram": 2.52,
@@ -152,7 +152,7 @@
       "ema22": 861.37,
       "ema55": 852.38,
       "ema150": 847.77,
-      "ema200": 838.68,
+      "ema200": 838.7,
       "macd": 15.79,
       "macd_signal": 7.43,
       "macd_histogram": 8.36,
@@ -160,7 +160,7 @@
       "rvol": 1.88,
       "candle": "None",
       "spread_22_55": 8.98,
-      "spread_150_200": 9.09
+      "spread_150_200": 9.07
     }
   ]
 }
