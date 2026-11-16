@@ -1,13 +1,13 @@
 {
   "scanner_name": "Aurora Nifty 200 — Daily 22/55 Trend Reversal",
-  "generated_at": "2026-11-15T23:25:31.972457+05:30",
+  "generated_at": "2026-11-17T02:40:50.278397+05:30",
   "market_status": "CLOSED — LAST TRADING DATA",
   "market_data_date": "2026-11-13",
   "market_data_session_display": "13-Nov-2026 03:30 PM IST",
-  "data_fetched_at": "2026-11-15T23:25:19.215400+05:30",
-  "data_fetched_display": "15-Nov-2026 11:25 PM IST",
-  "page_refreshed_at": "2026-11-15T23:25:31.972457+05:30",
-  "page_refreshed_display": "15-Nov-2026 11:25 PM IST",
+  "data_fetched_at": "2026-11-17T02:40:33.444024+05:30",
+  "data_fetched_display": "17-Nov-2026 02:40 AM IST",
+  "page_refreshed_at": "2026-11-17T02:40:50.278397+05:30",
+  "page_refreshed_display": "17-Nov-2026 02:40 AM IST",
   "universe": "Nifty 200",
   "timeframe": "Daily",
   "candidate_count": 12,
@@ -80,7 +80,7 @@
       "ema22": 1004.26,
       "ema55": 998.04,
       "ema150": 1006.96,
-      "ema200": 1001.57,
+      "ema200": 1001.58,
       "macd": 23.65,
       "macd_signal": 9.42,
       "macd_histogram": 14.23,
@@ -88,7 +88,7 @@
       "rvol": 1.13,
       "candle": "None",
       "spread_22_55": 6.22,
-      "spread_150_200": 5.39
+      "spread_150_200": 5.38
     },
     {
       "stock": "JINDALSTEL",
@@ -98,7 +98,7 @@
       "ema22": 1109.28,
       "ema55": 1102.48,
       "ema150": 1110.3,
-      "ema200": 1105.93,
+      "ema200": 1105.94,
       "macd": 22.53,
       "macd_signal": 10.41,
       "macd_histogram": 12.12,
@@ -116,7 +116,7 @@
       "ema22": 581.04,
       "ema55": 564.88,
       "ema150": 524.41,
-      "ema200": 513.81,
+      "ema200": 513.79,
       "macd": 27.68,
       "macd_signal": 4.71,
       "macd_histogram": 22.98,
@@ -124,7 +124,7 @@
       "rvol": 1.83,
       "candle": "None",
       "spread_22_55": 16.16,
-      "spread_150_200": 10.6
+      "spread_150_200": 10.61
     },
     {
       "stock": "AXISBANK",
@@ -152,7 +152,7 @@
       "ema22": 5132.26,
       "ema55": 5023.16,
       "ema150": 4977.01,
-      "ema200": 4976.18,
+      "ema200": 4976.19,
       "macd": 198.52,
       "macd_signal": 99.54,
       "macd_histogram": 98.98,
@@ -160,7 +160,7 @@
       "rvol": 0.98,
       "candle": "None",
       "spread_22_55": 109.09,
-      "spread_150_200": 0.83
+      "spread_150_200": 0.82
     },
     {
       "stock": "LT",
@@ -205,8 +205,8 @@
       "cmp": 1650.0,
       "ema22": 1541.31,
       "ema55": 1520.31,
-      "ema150": 1514.94,
-      "ema200": 1513.95,
+      "ema150": 1514.95,
+      "ema200": 1513.99,
       "macd": 48.49,
       "macd_signal": 25.14,
       "macd_histogram": 23.35,
@@ -214,7 +214,7 @@
       "rvol": 1.12,
       "candle": "None",
       "spread_22_55": 21.0,
-      "spread_150_200": 0.99
+      "spread_150_200": 0.95
     },
     {
       "stock": "RADICO",
@@ -224,7 +224,7 @@
       "ema22": 4412.96,
       "ema55": 4378.92,
       "ema150": 4053.3,
-      "ema200": 3889.35,
+      "ema200": 3889.37,
       "macd": 40.51,
       "macd_signal": -5.73,
       "macd_histogram": 46.23,
@@ -232,7 +232,7 @@
       "rvol": 0.72,
       "candle": "None",
       "spread_22_55": 34.04,
-      "spread_150_200": 163.95
+      "spread_150_200": 163.93
     }
   ]
 }
