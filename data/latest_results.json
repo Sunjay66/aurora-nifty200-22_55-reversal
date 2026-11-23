@@ -1,13 +1,13 @@
 {
   "scanner_name": "Aurora Nifty 200 — Daily 22/55 Trend Reversal",
-  "generated_at": "2026-11-23T00:07:26.995730+05:30",
+  "generated_at": "2026-11-24T04:20:24.785675+05:30",
   "market_status": "CLOSED — LAST TRADING DATA",
   "market_data_date": "2026-11-20",
   "market_data_session_display": "20-Nov-2026 03:30 PM IST",
-  "data_fetched_at": "2026-11-23T00:07:11.206162+05:30",
-  "data_fetched_display": "23-Nov-2026 12:07 AM IST",
-  "page_refreshed_at": "2026-11-23T00:07:26.995730+05:30",
-  "page_refreshed_display": "23-Nov-2026 12:07 AM IST",
+  "data_fetched_at": "2026-11-24T04:20:17.733339+05:30",
+  "data_fetched_display": "24-Nov-2026 04:20 AM IST",
+  "page_refreshed_at": "2026-11-24T04:20:24.785675+05:30",
+  "page_refreshed_display": "24-Nov-2026 04:20 AM IST",
   "universe": "Nifty 200",
   "timeframe": "Daily",
   "candidate_count": 8,
@@ -34,7 +34,7 @@
       "rvol": 1.73,
       "candle": "None",
       "spread_22_55": 0.87,
-      "spread_150_200": 5.32
+      "spread_150_200": 5.33
     },
     {
       "stock": "SUNPHARMA",
@@ -44,7 +44,7 @@
       "ema22": 1841.34,
       "ema55": 1836.12,
       "ema150": 1831.91,
-      "ema200": 1820.47,
+      "ema200": 1820.48,
       "macd": 25.24,
       "macd_signal": 17.1,
       "macd_histogram": 8.15,
@@ -52,7 +52,7 @@
       "rvol": 0.82,
       "candle": "None",
       "spread_22_55": 5.23,
-      "spread_150_200": 11.44
+      "spread_150_200": 11.43
     },
     {
       "stock": "TMCV",
@@ -88,7 +88,7 @@
       "rvol": 1.03,
       "candle": "None",
       "spread_22_55": 8.77,
-      "spread_150_200": 40.6
+      "spread_150_200": 40.61
     },
     {
       "stock": "APOLLOHOSP",
@@ -97,8 +97,8 @@
       "cmp": 9200.0,
       "ema22": 8515.75,
       "ema55": 8446.11,
-      "ema150": 8331.44,
-      "ema200": 8224.26,
+      "ema150": 8331.45,
+      "ema200": 8224.27,
       "macd": 187.59,
       "macd_signal": 111.39,
       "macd_histogram": 76.19,
@@ -106,7 +106,7 @@
       "rvol": 2.68,
       "candle": "Morning Star",
       "spread_22_55": 69.64,
-      "spread_150_200": 107.19
+      "spread_150_200": 107.18
     },
     {
       "stock": "UNITDSPR",
