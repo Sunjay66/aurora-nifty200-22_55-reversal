@@ -1,13 +1,13 @@
 {
   "scanner_name": "Aurora Nifty 200 — Daily 22/55 Trend Reversal",
-  "generated_at": "2026-11-25T02:57:20.565808+05:30",
+  "generated_at": "2026-11-26T02:04:37.752768+05:30",
   "market_status": "CLOSED — LAST TRADING DATA",
   "market_data_date": "2026-11-23",
   "market_data_session_display": "23-Nov-2026 03:30 PM IST",
-  "data_fetched_at": "2026-11-25T02:57:05.815637+05:30",
-  "data_fetched_display": "25-Nov-2026 02:57 AM IST",
-  "page_refreshed_at": "2026-11-25T02:57:20.565808+05:30",
-  "page_refreshed_display": "25-Nov-2026 02:57 AM IST",
+  "data_fetched_at": "2026-11-26T02:04:27.370537+05:30",
+  "data_fetched_display": "26-Nov-2026 02:04 AM IST",
+  "page_refreshed_at": "2026-11-26T02:04:37.752768+05:30",
+  "page_refreshed_display": "26-Nov-2026 02:04 AM IST",
   "universe": "Nifty 200",
   "timeframe": "Daily",
   "candidate_count": 8,
@@ -26,7 +26,7 @@
       "ema22": 1762.12,
       "ema55": 1754.33,
       "ema150": 1741.18,
-      "ema200": 1731.47,
+      "ema200": 1731.48,
       "macd": 34.23,
       "macd_signal": 17.84,
       "macd_histogram": 16.39,
@@ -34,7 +34,7 @@
       "rvol": 1.25,
       "candle": "Hammer",
       "spread_22_55": 7.79,
-      "spread_150_200": 9.71
+      "spread_150_200": 9.7
     },
     {
       "stock": "PIDILITIND",
@@ -44,7 +44,7 @@
       "ema22": 1541.67,
       "ema55": 1538.38,
       "ema150": 1532.47,
-      "ema200": 1525.25,
+      "ema200": 1525.24,
       "macd": 21.16,
       "macd_signal": 12.54,
       "macd_histogram": 8.62,
@@ -52,7 +52,7 @@
       "rvol": 1.87,
       "candle": "None",
       "spread_22_55": 3.29,
-      "spread_150_200": 7.22
+      "spread_150_200": 7.23
     },
     {
       "stock": "ADANIPOWER",
@@ -62,7 +62,7 @@
       "ema22": 202.79,
       "ema55": 201.67,
       "ema150": 198.13,
-      "ema200": 192.83,
+      "ema200": 192.84,
       "macd": 3.75,
       "macd_signal": 2.73,
       "macd_histogram": 1.01,
@@ -115,8 +115,8 @@
       "cmp": 1470.0,
       "ema22": 1423.02,
       "ema55": 1411.93,
-      "ema150": 1381.29,
-      "ema200": 1340.79,
+      "ema150": 1381.3,
+      "ema200": 1340.88,
       "macd": 35.05,
       "macd_signal": 27.69,
       "macd_histogram": 7.36,
@@ -124,7 +124,7 @@
       "rvol": 1.99,
       "candle": "None",
       "spread_22_55": 11.09,
-      "spread_150_200": 40.5
+      "spread_150_200": 40.42
     },
     {
       "stock": "APOLLOHOSP",
@@ -134,7 +134,7 @@
       "ema22": 8580.21,
       "ema55": 8475.07,
       "ema150": 8343.7,
-      "ema200": 8234.55,
+      "ema200": 8234.47,
       "macd": 220.32,
       "macd_signal": 133.18,
       "macd_histogram": 87.15,
@@ -142,7 +142,7 @@
       "rvol": 1.37,
       "candle": "None",
       "spread_22_55": 105.14,
-      "spread_150_200": 109.16
+      "spread_150_200": 109.23
     },
     {
       "stock": "UNITDSPR",
@@ -152,7 +152,7 @@
       "ema22": 1408.59,
       "ema55": 1397.41,
       "ema150": 1391.58,
-      "ema200": 1388.66,
+      "ema200": 1388.65,
       "macd": 29.25,
       "macd_signal": 18.68,
       "macd_histogram": 10.57,
@@ -160,7 +160,7 @@
       "rvol": 1.11,
       "candle": "None",
       "spread_22_55": 11.18,
-      "spread_150_200": 2.91
+      "spread_150_200": 2.92
     }
   ]
 }
